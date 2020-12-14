@@ -49,7 +49,7 @@ export function DrawerContent(props) {
 
     const elimiinarDatos = async ( ) =>{
         try {
-          await AsyncStorage.removeItem('user');
+          await AsyncStorage.removeItem('user'); //sfsfsfsfdfds
             
         } catch (error) {
           console.log(error)
