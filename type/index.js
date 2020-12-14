@@ -1,0 +1,2 @@
+export const ADD_USER = 'ADD_USER';
+export const OBTENER_PRODUCTOS_EXITO = 'OBTENER_PRODUCTOS_EXITO';
