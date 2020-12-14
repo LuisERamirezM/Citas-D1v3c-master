@@ -48,7 +48,7 @@ function ExploreScreen({navigation}) {
       }
     }
     return (
-      <View style={{ flex: 1, alignItems: 'center', justifyContent: 'center' }}>
+      <View style={{ flex: 1, alignItems: 'center', justifyContent: 'center' , margin: 30}}>
         <Text>Visualiza tus Citas</Text>
        <ScrollView>
         <View style={styles.container}>                
@@ -65,7 +65,7 @@ function ExploreScreen({navigation}) {
             </View>
           </ScrollView>            
         <Button
-          title= " Ir a Inicio"
+          title= "salir"
           onPress = {() => navigation.navigate('Home')}
 
         />
