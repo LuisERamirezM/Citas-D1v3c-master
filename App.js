@@ -20,8 +20,8 @@ const Drawer = createDrawerNavigator();
 const Stack = createStackNavigator();
 
 const TheDrawer = () => (
-  <Drawer.Navigator drawerContent={props => <DrawerContent {...props} />}>
-    {<Drawer.Screen name="HomeDrawer" component={MainTabScreen} />}
+  <Drawer.Navigator  drawerContent={props => <DrawerContent {...props} />}>
+    {<Drawer.Screen name="HomeDrawer"   component={MainTabScreen} />}
   </Drawer.Navigator>
 )
 
@@ -39,7 +39,7 @@ function App() {
             />
 
             <Stack.Screen
-              name="HomeDrawer" component={TheDrawer} options={{ headerMode: 'none', headerShown: false }}
+              name="HomeDrawer"  component={TheDrawer} options={{ headerMode: 'none', headerShown: false }}
             />
           </Stack.Navigator>
         </NavigationContainer>

@@ -1,7 +1,6 @@
 import React, {useState,useContext} from 'react';
 import { View, StyleSheet } from 'react-native';
 import {
-    useTheme,
     Avatar,
     Title,
     Caption,
@@ -33,13 +32,6 @@ export function DrawerContent(props) {
     const navigation = useNavigation();
     const {carrera,nombre,codigo,centro} = useContext(UserContext)    
     
-
-    const [isDarkTheme, setIsDarkTheme] = React.useState(false);
-
-    const toogleTheme = () => {
-        setIsDarkTheme(isDarkTheme);
-    }
-    const paperTheme = useTheme();
 
     // const { signOut, toggleTheme } = React.useContext(AuthContext);
     const signOut = () =>{
@@ -133,7 +125,7 @@ export function DrawerContent(props) {
                                 size={size}
                                 />
                             )}
-                            label="Comentarios"
+                            label="Contacto"
                             onPress={() => {props.navigation.navigate('Comentarios')}}
                         />
                     </Drawer.Section>
@@ -158,7 +150,8 @@ export function DrawerContent(props) {
 
 const styles = StyleSheet.create({
     drawerContent: {
-      flex: 1,
+        flex: 1,
+        borderTopWidth: 1,
     },
     userInfoSection: {
       paddingLeft: 20,

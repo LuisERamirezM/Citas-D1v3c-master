@@ -13,22 +13,30 @@ const Stack = createStackNavigator();
 
 // -------------------------Menu-------------------------------
 const MainTabScreen = ({ navigation }) => (
-
   <Stack.Navigator screenOptions={{
     headerStyle: {
-      backgroundColor: '#009387',
+      backgroundColor: '#121EB2',
+      borderBottomRightRadius:20,
+      borderBottomLeftRadius: 20,   
     },
     headerTintColor: '#fff',
+    headerTitleAlign: 'center',
     headerTitleStyle: {
-      fontWeight: 'bold'
+      fontWeight: 'bold',
+      borderRadius: 10
+    },
+    headerLeftContainerStyle: {
+      margin: 10,
+      justifyContent: 'center'
     }
+
   }}>
     <Stack.Screen name="Home" component={DetailsScreen}
       options={{
         title: 'Calendario',
         headerLeft: () => (
-          <Icon.Button name="ios-menu" size={25}
-            backgroundColor='#009387' onPress={() => { navigation.openDrawer() }}></Icon.Button>
+          <Icon.Button  name="ios-menu" size={30} 
+            backgroundColor='#121EB2'  onPress={() => { navigation.openDrawer() }}></Icon.Button>
         )
       }}
     />
@@ -36,8 +44,8 @@ const MainTabScreen = ({ navigation }) => (
     <Stack.Screen name="Profile" component={CalendarPicker} options={{
       title: 'Agendar Cita',
       headerLeft: () => (
-        <Icon.Button name="ios-menu" size={25}
-          backgroundColor='#009387' onPress={() => { navigation.openDrawer() }}></Icon.Button>
+        <Icon.Button  name="ios-menu" size={30} 
+            backgroundColor='#121EB2'  onPress={() => { navigation.openDrawer() }}></Icon.Button>
       )
     }} />
     <Stack.Screen
@@ -46,15 +54,15 @@ const MainTabScreen = ({ navigation }) => (
       options={{
         title: 'Mis Citas',
         headerLeft: () => (
-          <Icon.Button name="ios-menu" size={25}
-            backgroundColor='#009387' onPress={() => { navigation.openDrawer() }}></Icon.Button>
+          <Icon.Button  name="ios-menu" size={30} 
+            backgroundColor='#121EB2'  onPress={() => { navigation.openDrawer() }}></Icon.Button>
         )
       }} />
     <Stack.Screen name="Comentarios" component={ComentariosScreen} options={{
-      title: 'Comentarios',
+      title: 'Contacto',
       headerLeft: () => (
-        <Icon.Button name="ios-menu" size={25}
-          backgroundColor='#009387' onPress={() => { navigation.openDrawer() }}></Icon.Button>
+        <Icon.Button  name="ios-menu" size={30} 
+        backgroundColor='#121EB2'  onPress={() => { navigation.openDrawer() }}></Icon.Button>
       )
     }} />
   </Stack.Navigator>
