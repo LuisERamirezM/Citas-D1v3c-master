@@ -30,7 +30,7 @@ const TheDrawer = ()=> (
             {/* <Drawer.Screen name="SoporteScreen" component={SoporteScreen} /> */}
           </Drawer.Navigator>          
 )
-// --------------------------Inicial --------------------------------
+// --------------------------Initial --------------------------------
 function App() {
   return (
     <FirebaseState>
