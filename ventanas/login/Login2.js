@@ -111,8 +111,10 @@ export default Login = () => {
           <Text style={styles.errorText}>El código y el Nip no coinciden</Text>
         </View>
       )}
-      <Text style={styles.label}>Código:</Text>
+            <Text style={styles.label}>Código</Text>
       <View style={styles.inputView} >
+       {/* <Image
+         source={require('../../images/ic_user.png')} style={styles.imageStyle} />*/}
         <TextInput
           onFocus={() => setError(false)}
           style={styles.inputText}
@@ -120,27 +122,28 @@ export default Login = () => {
           placeholderTextColor="#ffff"
           keyboardType='numeric'
           maxLength={12}
-          onChangeText={text => setcodigo(text)} />
+          onChangeText={text => setcodigo(text)} />   
       </View>
-
-      <Text style={styles.label}>Nip:</Text>
+      <Text style={styles.label}>NIP</Text>
       <View style={styles.inputView} >
         <TextInput
           onFocus={() => setError(false)}
           secureTextEntry
           style={styles.inputText}
           placeholder="Nip:"
+          underlineColorAndroid="transparent"
           placeholderTextColor="#ffff"
-          keyboardType='password'
+          keyboardType='default'
           onChangeText={text => setNip(text)} />
       </View>
 
       <Button style={styles.loginBtn}
+      
         onPress={() => {
           handlerButtonSendInfo()
         }}
       >
-        <Text style={styles.loginText}>Entrar</Text>
+        <Text style={styles.loginText}>Ingresar</Text>
       </Button>
 
     </View>
@@ -181,7 +184,7 @@ const styles = StyleSheet.create({
   },
   loginBtn: {
     width: "80%",
-    backgroundColor: "#fb5b5a",
+    backgroundColor: "#ffd53f",
     borderRadius: 25,
     height: 50,
     alignItems: "center",
@@ -208,6 +211,14 @@ const styles = StyleSheet.create({
     height: 40,
     width: '90%',
     justifyContent: 'center'
+  },
+  imageStyle: {
+    padding: 15,
+    margin: 1,
+    height: 25,
+    width: 25,
+    resizeMode : 'stretch',
+    alignItems: 'center'
   },
   errorText: {
     color: 'red',
