@@ -120,7 +120,7 @@ export function DrawerContent(props) {
                         <DrawerItem 
                             icon={({color, size}) => (
                                 <Icon 
-                                name="chat-plus-outline" 
+                                name="phone" 
                                 color={color}
                                 size={size}
                                 />

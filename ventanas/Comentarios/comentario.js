@@ -11,7 +11,14 @@ function ComentariosScreen({ navigation }) {
   return (
     <SafeAreaView style={styles.container}>
       <View style={styles.card}>
-
+        <View style={styles.containerTop}>
+          <Text style ={styles.textTitle}>Envíanos un correo a: </Text>
+          <Text style ={styles.textBody}>cucei@gmail.com: </Text>
+        </View>      
+        <View style={styles.containerBottom}>
+          <Text style ={styles.textTitle}>Visita la página web: </Text>
+          <Text style ={styles.textBody}>cucei.com.mx </Text>
+        </View>   
       </View>
 
     </SafeAreaView>
@@ -24,50 +31,40 @@ const styles = StyleSheet.create({
   },
   card: {
     backgroundColor: "#FFFFFF",
+    borderRadius: 5,
     flex: 1,
     margin:15,
+    shadowColor: "#000",
+    shadowOffset: {
+      width: 0,
+      height: 1,
+    },
+    shadowOpacity: 0.22,
+    shadowRadius: 2.22,
+    elevation: 3,
+  },
+  containerTop: {
+    flex: 1,
+    justifyContent: "center",
+    alignItems: "center",
+  },
+  containerBottom: {
+    flex: 1,
+    justifyContent: "center",
+    alignItems: "center",
+    
     
   },
-  logoDivec: {
-    flex: 1,
-    alignSelf: 'center',
-    width: 300,
-    marginTop: 5,
+  textTitle: {
+    color: "#7991FE",
+    fontSize: 25,
+    fontWeight: "bold"
+  },
+  textBody: {
+    color: "#FE822D",
+    fontSize: 25,
 
   },
-  inputView: {
-    width: "90%",
-    backgroundColor: "#36465d",
-    borderRadius: 10,
-    height: 100,
-    marginBottom: 30,
-    justifyContent: "center",
-    padding: 20,
-    marginTop: 60
-  },
-  inputText: {
-    height: 90,
-    color: "white",
-
-  },
-  forgot: {
-    color: "white",
-    fontSize: 20
-  },
-  loginBtn: {
-    width: "80%",
-    backgroundColor: "#fb5b5a",
-    borderRadius: 25,
-    height: 50,
-    alignItems: "center",
-    justifyContent: "center",
-    marginTop: 50,
-    marginBottom: 50
-  },
-  loginText: {
-    backgroundColor: "#36465d",
-    color: "white"
-  }
 });
 
 export default ComentariosScreen;
