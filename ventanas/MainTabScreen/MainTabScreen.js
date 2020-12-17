@@ -7,13 +7,15 @@ import DetailsScreen from '../DetailScreen/detail';
 import ExploreScreen from '../ExploreScreen/ExploreScreen';
 import CalendarPicker from '../Calendar/CalendarPicker'
 import ComentariosScreen from '../Comentarios/comentario';
+import { View } from 'react-native';
 
 // -------------------------Navigator-------------------------------
 const Stack = createStackNavigator();
 
 // -------------------------Menu-------------------------------
 const MainTabScreen = ({ navigation }) => (
-  <Stack.Navigator screenOptions={{
+
+<Stack.Navigator screenOptions={{
     headerStyle: {
       backgroundColor: '#000070',
       borderBottomRightRadius:20,
@@ -66,6 +68,8 @@ const MainTabScreen = ({ navigation }) => (
       )
     }} />
   </Stack.Navigator>
+
+  
 );
 
 export default MainTabScreen;
