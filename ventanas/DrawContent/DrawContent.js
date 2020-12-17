@@ -52,7 +52,7 @@ export function DrawerContent(props) {
       }
     return(
         <View style={{flex:1}}>
-            <DrawerContentScrollView {...props} style={{flex: 1, backgroundColor:"#121EB2"}}>
+            <DrawerContentScrollView {...props} style={{flex: 1, backgroundColor:"#000070"}}>
                 <View style={styles.drawerContent}>
                     <View style={styles.userInfoSection}>
                         <View style={{marginTop: 10, alignItems: "center"}}>
