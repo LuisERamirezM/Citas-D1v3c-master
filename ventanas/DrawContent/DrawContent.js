@@ -52,7 +52,7 @@ export function DrawerContent(props) {
       }
     return(
         <View style={{flex:1}}>
-            <DrawerContentScrollView {...props} style={{flex: 1, backgroundColor:"#000070"}}>
+            <DrawerContentScrollView {...props} style={{backgroundColor:"#000070"}}>
                 <View style={styles.drawerContent}>
                     <View style={styles.userInfoSection}>
                         <View style={{marginTop: 10, alignItems: "center"}}>
@@ -155,7 +155,6 @@ const styles = StyleSheet.create({
         backgroundColor: "#fff",
     },
     userInfoSection: {
-      
       backgroundColor: '#000070',
       borderBottomRightRadius:20,
       borderBottomLeftRadius: 20, 
@@ -187,7 +186,9 @@ const styles = StyleSheet.create({
       marginRight: 3,
     },
     drawerSection: {
-      marginTop: 15,
+      marginTop: 20,
+      marginBottom: 100,
+      
     },
     bottomDrawerSection: {
         backgroundColor: "#fff",

@@ -8,25 +8,33 @@ function ComentariosScreen() {
       <View style={styles.card}>
         <View style={styles.containerTop}>
           <Text style={styles.textTitle}>Envíanos un correo a: </Text>
-          <TouchableOpacity onPress={() => Linking.openURL('mailto:cuceimobile@cucei.udg.mx').catch(err => {
-            Alert.error('An error occurred', err)
-          })}>
-            <Text style={styles.textBody}>cuceimobile@cucei.udg.mx</Text>
-          </TouchableOpacity>
+          <View style={styles.btn}>
+            <TouchableOpacity onPress={() => Linking.openURL('mailto:cuceimobile@cucei.udg.mx').catch(err => {
+              Alert.error('An error occurred', err)
+            })}>
+              <Text style={styles.textBody}>cuceimobile@cucei.udg.mx</Text>
+            </TouchableOpacity>
+          </View>
         </View>
         <View style={styles.containerTop}>
           <Text style={styles.textTitle}>Visitanos en Facebook:</Text>
-          <TouchableOpacity onPress={() => Linking.openURL('https://www.facebook.com/CuceiMobile')}>
-            <Text style={styles.textBody}
-            >CuceiMobile</Text>
-          </TouchableOpacity>
+          <View style={styles.btn}>
+            <TouchableOpacity onPress={() => Linking.openURL('https://www.facebook.com/CuceiMobile')}>
+              <Text style={styles.textBody}
+              >CuceiMobile</Text>
+            </TouchableOpacity>
+          </View>
+          <View />
         </View>
         <View style={styles.containerBottom}>
           <Text style={styles.textTitle}>Visita la página web:</Text>
-          <TouchableOpacity onPress={() => Linking.openURL('http://148.202.152.33/?fbclid=IwAR334R73qhpeK6jvPLeDFRJmOc88ZJtNDOLbq6_qqx0Hd1WC57eF47vwVww')}>
-            <Text style={styles.textBody}
-            >cucei.com.mx </Text>
-          </TouchableOpacity>
+          <View style={styles.btn}>
+            <TouchableOpacity onPress={() => Linking.openURL('http://148.202.152.33/?fbclid=IwAR334R73qhpeK6jvPLeDFRJmOc88ZJtNDOLbq6_qqx0Hd1WC57eF47vwVww')}>
+              <Text style={styles.textBody}
+              >cucei.com.mx </Text>
+            </TouchableOpacity>
+          </View>
+
 
         </View>
       </View>
@@ -37,6 +45,22 @@ function ComentariosScreen() {
 const styles = StyleSheet.create({
   container: {
     flex: 1,
+  },
+  btn: {
+    flex: .25,
+    margin: 10,
+    borderRadius: 5,
+    padding: 5,
+    backgroundColor: "#fff",
+    justifyContent: "center",
+    shadowColor: "#000",
+    shadowOffset: {
+      width: 0,
+      height: 1,
+    },
+    shadowOpacity: 0.22,
+    shadowRadius: 2.22,
+    elevation: 3,
   },
   card: {
     backgroundColor: "#FFFFFF",
@@ -61,8 +85,6 @@ const styles = StyleSheet.create({
     flex: 1,
     justifyContent: "center",
     alignItems: "center",
-
-
   },
   textTitle: {
     color: "#7991FE",
