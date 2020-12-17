@@ -1,11 +1,12 @@
 import React, { useState, useContext } from 'react';
 import { StyleSheet, Text, View, TextInput, TouchableOpacity, Image, ToastAndroid, Alert, Platform } from 'react-native';
-import { Button } from 'react-native-paper';
+import { Button, shadow } from 'react-native-paper';
 
 import AsyncStorage from '@react-native-community/async-storage';
 
 import { useNavigation } from '@react-navigation/native';
 import UserContext from '../../context/user/userContext';
+import { color } from 'react-native-reanimated';
 
 
 export default Login = () => {
@@ -99,7 +100,7 @@ export default Login = () => {
     }
   }
 
-
+  
   return (
     <View style={styles.container}>
       <View style={{ flex: 4 }}>
@@ -116,21 +117,21 @@ export default Login = () => {
         <TextInput
           onFocus={() => setError(false)}
           style={styles.inputText}
-          placeholder="Código:"
-          placeholderTextColor="#ffff"
+          placeholder="Código"
+          placeholderTextColor="#305D7A"
           keyboardType='numeric'
           maxLength={12}
           onChangeText={text => setcodigo(text)} />
       </View>
 
-      <Text style={styles.label}>Nip:</Text>
+      <Text style={styles.label}>NIP:</Text>
       <View style={styles.inputView} >
         <TextInput
           onFocus={() => setError(false)}
           secureTextEntry
           style={styles.inputText}
-          placeholder="Nip:"
-          placeholderTextColor="#ffff"
+          placeholder="NIP"
+          placeholderTextColor="#305D7A"
           keyboardType='password'
           onChangeText={text => setNip(text)} />
       </View>
@@ -159,21 +160,29 @@ const styles = StyleSheet.create({
     alignSelf: 'center',
     width: 300,
     marginTop: 5,
-
   },
-
+  
   inputView: {
     width: "80%",
-    backgroundColor: "#00505c",
+    backgroundColor: "#FFFFFF",
     borderRadius: 25,
     height: 50,
     marginBottom: 20,
     justifyContent: "center",
-    padding: 20
+    padding: 20,
+    shadowColor: "#000",
+    shadowOffset: {
+      width: 0,
+      height: 2,
+    },
+    shadowOpacity: 0.25,
+    shadowRadius: 3.84,
+
+    elevation: 5,
   },
   inputText: {
     height: 50,
-    color: "white"
+    color: "black"
   },
   forgot: {
     color: "white",
@@ -181,13 +190,22 @@ const styles = StyleSheet.create({
   },
   loginBtn: {
     width: "80%",
-    backgroundColor: "#fb5b5a",
+    backgroundColor: "#EBB331",
     borderRadius: 25,
     height: 50,
     alignItems: "center",
     justifyContent: "center",
     marginTop: 10,
-    marginBottom: 10
+    marginBottom: 10, 
+    shadowColor: "#000",
+    shadowOffset: {
+      width: 0,
+      height: 2,
+    },
+    shadowOpacity: 0.25,
+    shadowRadius: 3.84,
+
+    elevation: 5,
   },
   loginText: {
     color: "white"

@@ -91,7 +91,7 @@ export function DrawerContent(props) {
                                 size={size}
                                 />
                             )}
-                            label="Home"
+                            label="Inicio"
                             onPress={() => {props.navigation.navigate('Home')}}
                         />
                         <DrawerItem 
@@ -130,7 +130,7 @@ export function DrawerContent(props) {
                     </Drawer.Section>
                 </View>
             </DrawerContentScrollView>
-            <View style={{flex: .99, backgroundColor: "#fff", justifyContent:"flex-end"}}>
+            <View style={{flex: .75, backgroundColor: "#fff", justifyContent:"flex-end"}}>
                 <Drawer.Section style={styles.bottomDrawerSection}>
                     <DrawerItem 
                         icon={({color, size}) => (
@@ -156,7 +156,7 @@ const styles = StyleSheet.create({
     },
     userInfoSection: {
       
-      backgroundColor: '#121EB2',
+      backgroundColor: '#000070',
       borderBottomRightRadius:20,
       borderBottomLeftRadius: 20, 
     },

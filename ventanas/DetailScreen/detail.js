@@ -6,9 +6,13 @@ import { createStackNavigator } from '@react-navigation/stack';
 import { createDrawerNavigator } from '@react-navigation/drawer';
 
 
+
+
+
 function ProfileScreen({navigation}) {
     return (
       <View style={{ flex: 1, alignItems: 'center', justifyContent: 'center' }}>
+        <Text>¡BIENVENIDOS!</Text>
         <Text>Fechas Disponibles</Text>
   
         <Button
@@ -16,12 +20,15 @@ function ProfileScreen({navigation}) {
           onPress = {() => navigation.navigate('Home')}
         />
         <Button
-          title= " Ir Atras"
+          title= " Ir Atrás"
           onPress = {() => navigation.goBack('Details')}
         />
-       
+        
+      
       </View>
+      
     );
   }
+  
 
 export default ProfileScreen;
