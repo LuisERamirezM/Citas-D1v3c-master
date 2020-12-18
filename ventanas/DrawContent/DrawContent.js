@@ -1,4 +1,4 @@
-import React, {useState,useContext} from 'react';
+import React, {useContext} from 'react';
 import { View, StyleSheet } from 'react-native';
 import {
     Avatar,
@@ -6,9 +6,6 @@ import {
     Caption,
     Paragraph,
     Drawer,
-    Text,
-    TouchableRipple,
-    Switch
 } from 'react-native-paper';
 import {
     DrawerContentScrollView,

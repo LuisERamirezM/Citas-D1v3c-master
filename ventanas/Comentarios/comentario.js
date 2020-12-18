@@ -49,7 +49,7 @@ const styles = StyleSheet.create({
   btn: {
     flex: .25,
     margin: 10,
-    borderRadius: 5,
+    borderRadius: 25,
     padding: 5,
     backgroundColor: "#fff",
     justifyContent: "center",

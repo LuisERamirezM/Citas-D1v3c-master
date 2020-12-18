@@ -1,9 +1,6 @@
 import 'react-native-gesture-handler';
 import React,{useState,useEffect,useContext} from 'react';
-import { SafeAreaView, StyleSheet, ScrollView, View, Text, StatusBar, Button} from 'react-native';
-import { NavigationContainer } from '@react-navigation/native';
-import { createStackNavigator } from '@react-navigation/stack';
-import { createDrawerNavigator } from '@react-navigation/drawer';
+import {  StyleSheet, ScrollView, View, Text,  Button} from 'react-native';
 import Cita from '../../UI/cita';
 
 import _ from 'lodash';
@@ -16,7 +13,7 @@ function ExploreScreen({navigation}) {
 
   const [citasTotales, setCitasTotales] = useState([])
 
-  const {carrera,nombre,codigo,centro} = useContext(UserContext) // Obtener los datos del usuario del context
+  const {codigo} = useContext(UserContext) // Obtener los datos del usuario del context
     const {firebase} = useContext(FirebaseContext); //Obtener las funciones de firebase
 
     useEffect(()=>{
@@ -48,12 +45,12 @@ function ExploreScreen({navigation}) {
       }
     }
     return (
-      <View style={{ flex: 1, alignItems: 'center', justifyContent: 'center' , margin: 30}}>
-        <Text>Visualiza tus Citas</Text>
+      <View style={{ flex: 1,  margin: 5}}>
+
        <ScrollView>
         <View style={styles.container}>                
                 {citasTotales.map( cite =>{
-                  // console.log(cite)
+                  console.log(cite)
                   return (                    
                     <Cita 
                         key={cite.id}
@@ -64,12 +61,6 @@ function ExploreScreen({navigation}) {
                 
             </View>
           </ScrollView>            
-        <Button
-          title= "salir"
-          onPress = {() => navigation.navigate('Home')}
-
-        />
-        
       </View>
     );
   }

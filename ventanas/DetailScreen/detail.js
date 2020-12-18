@@ -1,8 +1,8 @@
 import 'react-native-gesture-handler';
 import React from 'react';
-import { StyleSheet, View, Text, Image, FlatList} from 'react-native';
+import { StyleSheet, View, Text, Image} from 'react-native';
 
-function ProfileScreen({navigation}) {
+function ProfileScreen() {
     return (
       <View style={styles.container}>
         <Text style={styles.text}>¡BIENVENIDOS!</Text>
