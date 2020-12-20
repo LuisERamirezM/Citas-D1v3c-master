@@ -103,8 +103,8 @@ export default Login = () => {
   
   return (
     <View style={styles.container}>
-      <View style={{ flex: 4 }}>
-        <Image style={styles.logoDivec} source={require('../../images/DivecLogo.png')} />
+      <View style={{ flex: 1, backgroundColor:"#000070", width:"100%", borderBottomLeftRadius:25, borderBottomRightRadius:25, marginBottom: 120}}>
+        <Image style={styles.logoDivec} source={require('../../images/DivecCitas.png')} />
       </View>
 
       {error && (
@@ -112,6 +112,7 @@ export default Login = () => {
           <Text style={styles.errorText}>El código y el Nip no coinciden</Text>
         </View>
       )}
+      
       <Text style={styles.label}>Código:</Text>
       <View style={styles.inputView} >
         <TextInput
@@ -158,8 +159,7 @@ const styles = StyleSheet.create({
   logoDivec: {
     flex: 1,
     alignSelf: 'center',
-    width: 300,
-    marginTop: 5,
+    width: 200,
   },
   
   inputView: {
