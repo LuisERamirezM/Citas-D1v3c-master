@@ -5,14 +5,15 @@ import { StyleSheet, View, Text, Image} from 'react-native';
 function ProfileScreen() {
     return (
       <View style={styles.container}>
-        <Text style={styles.text}>¡BIENVENIDOS!</Text>
-        <View style={styles.logoDivec}>
-          <Image style={styles.img} source={require('../../images/DivecLogo.png')} />
-        </View>
+        <Text style={styles.text}>¡BIENVENIDOS A DIVEC CITAS!</Text>
         <View style={{flex:1, justifyContent:"flex-end" , padding: 10}}>
-          <Text style={styles.rules}>- Se debe agendar cita con un día de anticipación.</Text>
-          <Text style={styles.rules}>- Las citas están disponibles de Lunes a Viarenes apartir de las 7:00am hasta las 7:00pm.</Text>
-          <Text style={styles.rules}>- Las citas tienen una duración de 1hora.</Text>
+          <Text style={styles.negrita}>INSTRUCCIONES:</Text>
+          <Text style={styles.rules}>- Agendar cita con un día de anticipación.</Text>
+          <Text style={styles.rules}>- Las citas están disponibles de lunes a viernes a partir de las 7:00 a.m. hasta las 7:00 p.m.</Text>
+          <Text style={styles.rules}>- Las citas tienen una duración de 1 hr.</Text>
+        </View>
+        <View style={styles.logoDivec}>
+          <Image style={styles.img} source={require('../../images/DivecCitas.png')} />
         </View>
       </View>  
     );
@@ -56,6 +57,10 @@ function ProfileScreen() {
       width: 350, 
       height: 350,
       resizeMode: 'contain',
+    },
+    negrita: {
+      fontWeight: 'bold',
+  
     }
   });
 
