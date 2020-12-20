@@ -1,7 +1,7 @@
-import React from 'react';
-import { View, Text, StyleSheet, TouchableOpacity } from 'react-native'
+import React, {useContext} from 'react';
+import { View, Text, StyleSheet, TouchableOpacity, Alert } from 'react-native'
 import { SafeAreaView } from 'react-native-safe-area-context';
-
+import FirebaseContext from '../context/firebase/firebaseContext';
 
 
 const Cita = ({ cita }) => {
@@ -11,6 +11,36 @@ const Cita = ({ cita }) => {
 
   const dia = new Date(date * 1000)
   const arrayDay = day.split('-')
+  const {firebase} = useContext(FirebaseContext); //Obtener las funciones de firebase
+
+  const cancel = () => {
+    Alert.alert(
+      '¿Quieres cancelar la cita?',
+      'Tú cita se eliminara y tendrás que agendar una nueva si quieres recuperarla.',
+      [
+        {
+          text: 'Yes',
+            onPress: () => {      
+            console.log('etro')
+            try {
+              console.log("Citaaaa: " + cita.id)
+              firebase.db.collection("cita").doc(cita.id).delete().then(function () {
+                console.log("Document successfully deleted!");
+              }).catch(function (error) {
+                console.error("Error removing document: ", error);
+              });
+            } catch (e) {
+              console.log(e)
+            }
+          }
+        },
+        {
+          text: 'No',
+          onPress: () => console.log("No se cancelo cita")
+        },
+      ],
+    );
+  }
 
   removeCitasPasadas = () => {
     const pastCites = new Date(startDateTime)
@@ -53,7 +83,7 @@ const Cita = ({ cita }) => {
             <Text style={styles.negrita}>Asunto: </Text>
             <Text>{subject}</Text>
           </View>
-          <TouchableOpacity style={styles.DBtn} onPress={() => console.log("Button tapped")}>
+          <TouchableOpacity style={styles.DBtn} onPress={() => cancel()}>
             <Text style={styles.BText}>Cancelar</Text>
           </TouchableOpacity>
         </View>

@@ -1,6 +1,6 @@
 import 'react-native-gesture-handler';
-import React,{useState,useEffect,useContext} from 'react';
-import {  StyleSheet, ScrollView, View, Text,  Button} from 'react-native';
+import React, { useState, useEffect, useContext } from 'react';
+import { StyleSheet, ScrollView, View, Text, Button } from 'react-native';
 import Cita from '../../UI/cita';
 
 import _ from 'lodash';
@@ -9,56 +9,54 @@ import FirebaseContext from '../../context/firebase/firebaseContext'; // Context
 import UserContext from '../../context/user/userContext'// contexto para acceder a la info del usuario
 
 
-function ExploreScreen({navigation}) {
+function ExploreScreen({ navigation }) {
 
   const [citasTotales, setCitasTotales] = useState([])
 
-  const {codigo} = useContext(UserContext) // Obtener los datos del usuario del context
-    const {firebase} = useContext(FirebaseContext); //Obtener las funciones de firebase
+  const { codigo } = useContext(UserContext) // Obtener los datos del usuario del context
+  const { firebase } = useContext(FirebaseContext); //Obtener las funciones de firebase
 
-    useEffect(()=>{
-      obtenerCitas()
-    },[])
-    const obtenerCitas = () => {
-      try {
-        firebase.db
+  useEffect(() => {
+    obtenerCitas()
+  }, [])
+  const obtenerCitas = () => {
+    try {
+      firebase.db
         .collection('cita')
-        .where('codigo','==',codigo) //Solo los que estén en existencia
+        .where('codigo', '==', codigo) //Solo los que estén en existencia
         .onSnapshot(manejarSnapshot);
-      
-        function manejarSnapshot(snapshot) {
-            let citas = snapshot.docs.map(doc =>{
-                return{
-                    id: doc.id,
-                    ...doc.data()
-                }
-            }) ;
-            
-            //Ordenar por fecha con Lodash
-            citas = _.sortBy(citas,'date')
-            // console.log(citas) 
 
-            setCitasTotales(citas)
-        }
-      } catch (error) {
-          console.log(error)
+      function manejarSnapshot(snapshot) {
+        let citas = snapshot.docs.map(doc => {
+          return {
+            id: doc.id,
+            ...doc.data()
+          }
+        });
+
+        //Ordenar por fecha con Lodash
+        citas = _.sortBy(citas, 'date')
+        // console.log(citas) 
+
+        setCitasTotales(citas)
       }
+    } catch (error) {
+      console.log(error)
     }
+  }
     return (
       <View style={{ flex: 1,  margin: 5}}>
 
        <ScrollView>
         <View style={styles.container}>                
                 {citasTotales.map( cite =>{
-                  console.log(cite)
+                  //console.log(cite)
                   return (                    
                     <Cita 
                         key={cite.id}
                         cita={cite}
                     />
                 )})}
-
-                
             </View>
           </ScrollView>            
       </View>

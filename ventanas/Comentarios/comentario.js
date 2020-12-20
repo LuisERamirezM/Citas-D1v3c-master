@@ -29,7 +29,7 @@ function ComentariosScreen() {
         <View style={styles.containerBottom}>
           <Text style={styles.textTitle}>Visita la página web:</Text>
           <View style={styles.btn}>
-            <TouchableOpacity onPress={() => Linking.openURL('http://148.202.152.33/?fbclid=IwAR334R73qhpeK6jvPLeDFRJmOc88ZJtNDOLbq6_qqx0Hd1WC57eF47vwVww')}>
+            <TouchableOpacity style={{Color:"gray"}} onPress={() => Linking.openURL('http://148.202.152.33/?fbclid=IwAR334R73qhpeK6jvPLeDFRJmOc88ZJtNDOLbq6_qqx0Hd1WC57eF47vwVww')}>
               <Text style={styles.textBody}
               >cucei.com.mx </Text>
             </TouchableOpacity>
@@ -51,7 +51,7 @@ const styles = StyleSheet.create({
     margin: 10,
     borderRadius: 25,
     padding: 5,
-    backgroundColor: "#fff",
+    backgroundColor: "#B54A1C",
     justifyContent: "center",
     shadowColor: "#000",
     shadowOffset: {
@@ -82,6 +82,7 @@ const styles = StyleSheet.create({
     alignItems: "center",
   },
   containerBottom: {
+    
     flex: 1,
     justifyContent: "center",
     alignItems: "center",
@@ -91,9 +92,9 @@ const styles = StyleSheet.create({
     fontSize: 25,
     fontWeight: "bold",
   },
-  textBody: {
-    color: "#FE822D",
-    fontSize: 25,
+  textBody: { 
+    color: "#FFF",
+    fontSize: 22,
   },
 });
 

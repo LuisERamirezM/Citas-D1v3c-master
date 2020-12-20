@@ -6,14 +6,14 @@ function ProfileScreen() {
     return (
       <View style={styles.container}>
         <Text style={styles.text}>¡BIENVENIDOS A DIVEC CITAS!</Text>
+        <View style={styles.logoDivec}>
+          <Image style={styles.img} source={require('../../images/DivecCitas.png')} />
+        </View>
         <View style={{flex:1, justifyContent:"flex-end" , padding: 10}}>
           <Text style={styles.negrita}>INSTRUCCIONES:</Text>
           <Text style={styles.rules}>- Agendar cita con un día de anticipación.</Text>
           <Text style={styles.rules}>- Las citas están disponibles de lunes a viernes a partir de las 7:00 a.m. hasta las 7:00 p.m.</Text>
           <Text style={styles.rules}>- Las citas tienen una duración de 1 hr.</Text>
-        </View>
-        <View style={styles.logoDivec}>
-          <Image style={styles.img} source={require('../../images/DivecCitas.png')} />
         </View>
       </View>  
     );
@@ -29,7 +29,7 @@ function ProfileScreen() {
     text: {
       flex:.5, 
       margin: 30,
-      fontSize: 25,
+      fontSize: 20,
       fontWeight: "bold",
       
     },
