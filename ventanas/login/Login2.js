@@ -7,6 +7,7 @@ import AsyncStorage from '@react-native-community/async-storage';
 import { useNavigation } from '@react-navigation/native';
 import UserContext from '../../context/user/userContext';
 import { color } from 'react-native-reanimated';
+import Icon from 'react-native-vector-icons/MaterialCommunityIcons';
 
 
 export default Login = () => {
@@ -127,14 +128,14 @@ export default Login = () => {
 
       <Text style={styles.label}>NIP:</Text>
       <View style={styles.inputView} >
-        <TextInput
-          onFocus={() => setError(false)}
-          secureTextEntry
-          style={styles.inputText}
-          placeholder="NIP"
-          placeholderTextColor="#305D7A"
-          keyboardType='password'
-          onChangeText={text => setNip(text)} />
+          <TextInput
+            onFocus={() => setError(false)}
+            secureTextEntry
+            style={styles.inputText}
+            placeholder="NIP"
+            placeholderTextColor="#305D7A"
+            keyboardType='password'
+            onChangeText={text => setNip(text)} />
       </View>
 
       <Button style={styles.loginBtn}
@@ -182,7 +183,7 @@ const styles = StyleSheet.create({
   },
   inputText: {
     height: 50,
-    color: "black"
+    color: "black",
   },
   forgot: {
     color: "white",
