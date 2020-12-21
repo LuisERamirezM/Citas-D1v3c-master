@@ -161,7 +161,7 @@ const CalendarPicker = (props) => {
       }
     }
     return (  
-        <View style={{backgroundColor:"#005858",flex:1}}>        
+        <View style={{backgroundColor:"white",flex:1}}>        
           <View style={styles.container}>
           
             <View>
@@ -237,7 +237,7 @@ const CalendarPicker = (props) => {
   container:{    
     justifyContent:'center',
     alignItems:'center',
-    backgroundColor:'#005858',
+    backgroundColor:'white',
     // backgroundColor:'blue',
     flex:4,
     
@@ -250,7 +250,7 @@ const CalendarPicker = (props) => {
     marginTop:20
   },
   textoCita:{
-    color:"black",
+    color:"white",
     fontSize:24
 
   },
@@ -264,13 +264,21 @@ const CalendarPicker = (props) => {
   },
   citaBtn:{
     width:"80%",
-    backgroundColor:"#FFE232",
+    backgroundColor:"#EBB331",
     borderRadius:30,
     height:40,    
     alignItems:"center",
     justifyContent:"center",
-    alignSelf:"center",        
-    
+    alignSelf:"center",   
+    shadowColor: "#000",
+    shadowOffset: {
+      width: 0,
+      height: 2,
+    },
+    shadowOpacity: 0.25,
+    shadowRadius: 3.84,
+
+    elevation: 5,     
   },
 
   pickerSelectHour:{                
@@ -288,6 +296,15 @@ const CalendarPicker = (props) => {
   },
   inputAsunto:{
     // marginBottom:20
+    shadowColor: "#000",
+    shadowOffset: {
+      width: 0,
+      height: 2,
+    },
+    shadowOpacity: 0.25,
+    shadowRadius: 3.84,
+
+    elevation: 5,
   },
   containerInputAsunto:{
     marginHorizontal:20,

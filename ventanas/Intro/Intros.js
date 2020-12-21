@@ -39,6 +39,9 @@ const Intro = () => {
         <>
         <View style={styles.container}>
             <Image 
+             style={styles.fondDivec} source={require('../../images/FondDivec.png')}  
+            />
+            <Image 
              style={styles.logoDivec} source={require('../../images/DivecLogo.png')}  
             />
         </View>
@@ -48,14 +51,41 @@ const Intro = () => {
 
 const styles = StyleSheet.create({
     container:{
-        flex:1
+        flex:1,
+        //backgroundColor:"#EBB331",
     },
     logoDivec:{
         flex : 1,
         alignSelf: 'center',        
         marginTop: 5,
-      
+        position:'absolute',
     },
+    fondDivec:{
+        flex:1,
+        alignSelf: 'center',
+    },
+    triangleCorner: {
+        width: 0,
+        height: 0,
+        backgroundColor: "transparent",
+        borderStyle: "solid",
+        borderRightWidth: 900,
+        borderTopWidth: 900,
+        borderRightColor: "transparent",
+        borderTopColor: "#000070",
+        transform: [{ rotate: "90deg" }],
+        alignItems:'flex-end',
+        shadowColor: "#000",
+        shadowOffset: {
+        width: 0,
+        height: 2,
+        },
+        shadowOpacity: 0.25,
+        shadowRadius: 3.84,
+
+        elevation: 5,
+        //<View style={styles.triangleCorner}/>
+        },
 })
  
 export default Intro;

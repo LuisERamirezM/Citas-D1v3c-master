@@ -1,12 +1,9 @@
 import React, { useState, useContext } from 'react';
-import { StyleSheet, Text, View, TextInput, TouchableOpacity, Image, ToastAndroid, Alert, Platform } from 'react-native';
+import { StyleSheet, Text, View, TextInput, Image, Alert, TouchableOpacity } from 'react-native';
 import { Button } from 'react-native-paper';
-
 import AsyncStorage from '@react-native-community/async-storage';
-
 import { useNavigation } from '@react-navigation/native';
 import UserContext from '../../context/user/userContext';
-
 
 export default Login = () => {
 
@@ -26,7 +23,6 @@ export default Login = () => {
     const URL = "https://cuceimobile.tech/Escuela/datosudeg.php";
     await fetchGet(`${URL}?codigo=${codigo}&nip=${nip}`)
   }
-
   //Petición get
   fetchGet = (URL) => {
     var request = new XMLHttpRequest();
@@ -84,8 +80,6 @@ export default Login = () => {
       guardarDatos(user)
       addUser(user)
       navigation.navigate("HomeDrawer")
-      //Navegar a la siguiente ventana
-      //navigation.navigate("registro")
     }
   }
 
@@ -99,11 +93,10 @@ export default Login = () => {
     }
   }
 
-
   return (
     <View style={styles.container}>
-      <View style={{ flex: 4 }}>
-        <Image style={styles.logoDivec} source={require('../../images/DivecLogo.png')} />
+      <View style={styles.containerImg}>
+        <Image style={styles.logoDivec} source={require('../../images/DivecCitas.png')} />
       </View>
 
       {error && (
@@ -111,41 +104,36 @@ export default Login = () => {
           <Text style={styles.errorText}>El código y el Nip no coinciden</Text>
         </View>
       )}
-            <Text style={styles.label}>Código</Text>
+
+      <Text style={styles.label}>Código:</Text>
       <View style={styles.inputView} >
        {/* <Image
          source={require('../../images/ic_user.png')} style={styles.imageStyle} />*/}
         <TextInput
           onFocus={() => setError(false)}
           style={styles.inputText}
-          placeholder="Código:"
-          placeholderTextColor="#ffff"
+          placeholder="Código"
+          placeholderTextColor="#305D7A"
           keyboardType='numeric'
           maxLength={12}
           onChangeText={text => setcodigo(text)} />   
       </View>
-      <Text style={styles.label}>NIP</Text>
+
+      <Text style={styles.label}>NIP:</Text>
       <View style={styles.inputView} >
         <TextInput
           onFocus={() => setError(false)}
           secureTextEntry
           style={styles.inputText}
-          placeholder="Nip:"
-          underlineColorAndroid="transparent"
-          placeholderTextColor="#ffff"
-          keyboardType='default'
+          placeholder="NIP"
+          placeholderTextColor="#305D7A"
+          keyboardType='password'
           onChangeText={text => setNip(text)} />
       </View>
 
-      <Button style={styles.loginBtn}
-      
-        onPress={() => {
-          handlerButtonSendInfo()
-        }}
-      >
-        <Text style={styles.loginText}>Ingresar</Text>
-      </Button>
-
+      <TouchableOpacity style={styles.loginBtn} onPress={() => handlerButtonSendInfo()}>
+        <Text style={styles.loginText}>Entrar</Text>
+      </TouchableOpacity>
     </View>
   );
 }
@@ -155,28 +143,44 @@ const styles = StyleSheet.create({
     flex: 1,
     backgroundColor: '#fafafa',
     alignItems: 'center',
-    justifyContent: 'center',
+  },
+  containerImg: {
+    flex: .5,
+    backgroundColor: "#000070",
+    width: "100%",
+    borderBottomLeftRadius: 25,
+    borderBottomRightRadius: 25,
+    marginBottom: 120
   },
   logoDivec: {
     flex: 1,
-    alignSelf: 'center',
-    width: 300,
-    marginTop: 5,
-
+    width: 250,
+    height: 250,
+    resizeMode: 'contain',
+    alignSelf: 'center'
   },
 
   inputView: {
     width: "80%",
-    backgroundColor: "#00505c",
+    backgroundColor: "#FFFFFF",
     borderRadius: 25,
     height: 50,
     marginBottom: 20,
     justifyContent: "center",
-    padding: 20
+    padding: 20,
+    shadowColor: "#000",
+    shadowOffset: {
+      width: 0,
+      height: 2,
+    },
+    shadowOpacity: 0.25,
+    shadowRadius: 3.84,
+
+    elevation: 5,
   },
   inputText: {
     height: 50,
-    color: "white"
+    color: "black",
   },
   forgot: {
     color: "white",
@@ -184,21 +188,31 @@ const styles = StyleSheet.create({
   },
   loginBtn: {
     width: "80%",
-    backgroundColor: "#ffd53f",
+    backgroundColor: "#EBB331",
     borderRadius: 25,
     height: 50,
     alignItems: "center",
     justifyContent: "center",
     marginTop: 10,
-    marginBottom: 10
+    marginBottom: 10,
+    shadowColor: "#000",
+    shadowOffset: {
+      width: 0,
+      height: 2,
+    },
+    shadowOpacity: 0.25,
+    shadowRadius: 3.84,
+
+    elevation: 5,
   },
   loginText: {
-    color: "white"
+    color: "white",
+    fontWeight: 'bold',
+    fontSize: 16
   },
   label: {
     color: 'black',
     textAlign: 'left',
-    // backgroundColor:'red',
     alignContent: 'flex-end',
     width: '80%',
     marginVertical: 5,
@@ -207,7 +221,6 @@ const styles = StyleSheet.create({
     fontSize: 16
   },
   errorContainer: {
-    // backgroundColor:'red',
     height: 40,
     width: '90%',
     justifyContent: 'center'
@@ -224,6 +237,5 @@ const styles = StyleSheet.create({
     color: 'red',
     textAlign: 'center',
     fontSize: 16
-    // alignSelf:'center'
   }
 });

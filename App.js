@@ -1,6 +1,6 @@
 import 'react-native-gesture-handler';
 import React from 'react';
-import { NavigationContainer, StackActions } from '@react-navigation/native';
+import { NavigationContainer } from '@react-navigation/native';
 
 import { createDrawerNavigator } from '@react-navigation/drawer';
 import MainTabScreen from './ventanas/MainTabScreen/MainTabScreen';
@@ -13,7 +13,7 @@ import Intro from './ventanas/Intro/Intros';
 import UserState from './context/user/userState';
 import FirebaseState from './context/firebase/firebaseState';
 
-import { createStackNavigator, HeaderTitle } from '@react-navigation/stack';
+import { createStackNavigator } from '@react-navigation/stack';
 
 
 const Drawer = createDrawerNavigator();

@@ -7,15 +7,17 @@ import DetailsScreen from '../DetailScreen/detail';
 import ExploreScreen from '../ExploreScreen/ExploreScreen';
 import CalendarPicker from '../Calendar/CalendarPicker'
 import ComentariosScreen from '../Comentarios/comentario';
+import { View } from 'react-native';
 
 // -------------------------Navigator-------------------------------
 const Stack = createStackNavigator();
 
 // -------------------------Menu-------------------------------
 const MainTabScreen = ({ navigation }) => (
-  <Stack.Navigator screenOptions={{
+
+<Stack.Navigator screenOptions={{
     headerStyle: {
-      backgroundColor: '#121EB2',
+      backgroundColor: '#000070',
       borderBottomRightRadius:20,
       borderBottomLeftRadius: 20,   
     },
@@ -23,7 +25,7 @@ const MainTabScreen = ({ navigation }) => (
     headerTitleAlign: 'center',
     headerTitleStyle: {
       fontWeight: 'bold',
-      borderRadius: 10
+      borderRadius: 10,
     },
     headerLeftContainerStyle: {
       margin: 10,
@@ -33,10 +35,10 @@ const MainTabScreen = ({ navigation }) => (
   }}>
     <Stack.Screen name="Home" component={DetailsScreen}
       options={{
-        title: 'Calendario',
+        title: 'Inicio',
         headerLeft: () => (
           <Icon.Button  name="ios-menu" size={30} 
-            backgroundColor='#121EB2'  onPress={() => { navigation.openDrawer() }}></Icon.Button>
+            backgroundColor='#000070'  onPress={() => { navigation.openDrawer() }}></Icon.Button>
         )
       }}
     />
@@ -45,7 +47,7 @@ const MainTabScreen = ({ navigation }) => (
       title: 'Agendar Cita',
       headerLeft: () => (
         <Icon.Button  name="ios-menu" size={30} 
-            backgroundColor='#121EB2'  onPress={() => { navigation.openDrawer() }}></Icon.Button>
+            backgroundColor='#000070'  onPress={() => { navigation.openDrawer() }}></Icon.Button>
       )
     }} />
     <Stack.Screen
@@ -55,17 +57,19 @@ const MainTabScreen = ({ navigation }) => (
         title: 'Mis Citas',
         headerLeft: () => (
           <Icon.Button  name="ios-menu" size={30} 
-            backgroundColor='#121EB2'  onPress={() => { navigation.openDrawer() }}></Icon.Button>
+            backgroundColor='#000070'  onPress={() => { navigation.openDrawer() }}></Icon.Button>
         )
       }} />
     <Stack.Screen name="Comentarios" component={ComentariosScreen} options={{
       title: 'Contacto',
       headerLeft: () => (
         <Icon.Button  name="ios-menu" size={30} 
-        backgroundColor='#121EB2'  onPress={() => { navigation.openDrawer() }}></Icon.Button>
+        backgroundColor='#000070'  onPress={() => { navigation.openDrawer() }}></Icon.Button>
       )
     }} />
   </Stack.Navigator>
+
+  
 );
 
 export default MainTabScreen;
