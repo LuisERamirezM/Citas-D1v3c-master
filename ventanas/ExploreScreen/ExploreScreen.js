@@ -2,18 +2,13 @@ import 'react-native-gesture-handler';
 import React, { useState, useEffect, useContext } from 'react';
 import { StyleSheet, ScrollView, View, Text, Button } from 'react-native';
 import Cita from '../../UI/cita';
-
 import _ from 'lodash';
-
 import FirebaseContext from '../../context/firebase/firebaseContext'; // Contexto para acceder a firestore
 import UserContext from '../../context/user/userContext'// contexto para acceder a la info del usuario
 
-
-function ExploreScreen({ navigation }) {
-
-  const [citasTotales, setCitasTotales] = useState([])
-
-  const { codigo } = useContext(UserContext) // Obtener los datos del usuario del context
+function ExploreScreen() {
+  const [citasTotales, setCitasTotales] = useState([]);
+  const { codigo } = useContext(UserContext); // Obtener los datos del usuario del context
   const { firebase } = useContext(FirebaseContext); //Obtener las funciones de firebase
 
   useEffect(() => {
@@ -32,25 +27,20 @@ function ExploreScreen({ navigation }) {
             id: doc.id,
             ...doc.data()
           }
-        });
-
+        });     
         //Ordenar por fecha con Lodash
-        citas = _.sortBy(citas, 'date')
-        // console.log(citas) 
-
-        setCitasTotales(citas)
+        citas = _.sortBy(citas, 'date');
+        setCitasTotales(citas);
       }
     } catch (error) {
-      console.log(error)
+      console.log(error);
     }
   }
     return (
       <View style={{ flex: 1,  margin: 5}}>
-
        <ScrollView>
         <View style={styles.container}>                
                 {citasTotales.map( cite =>{
-                  //console.log(cite)
                   return (                    
                     <Cita 
                         key={cite.id}

@@ -1,17 +1,15 @@
-import React, {useContext} from 'react';
-import { View, Text, StyleSheet, TouchableOpacity, Alert } from 'react-native'
+import React, { useContext } from 'react';
+import { View, Text, StyleSheet, TouchableOpacity, Alert, LogBox } from 'react-native'
 import { SafeAreaView } from 'react-native-safe-area-context';
 import FirebaseContext from '../context/firebase/firebaseContext';
 
 
 const Cita = ({ cita }) => {
+  const { firebase } = useContext(FirebaseContext);
   const { nombre, codigo, date, day, startDateTime, time, centro, carrera, subject } = cita
   const hour = (time * 10) / 1000
-  // const flag = hour > 10000 ? true : false;
-
   const dia = new Date(date * 1000)
   const arrayDay = day.split('-')
-  const {firebase} = useContext(FirebaseContext); //Obtener las funciones de firebase
 
   const cancel = () => {
     Alert.alert(
@@ -20,15 +18,14 @@ const Cita = ({ cita }) => {
       [
         {
           text: 'Yes',
-            onPress: () => {      
-            console.log('etro')
+          onPress: () => {
             try {
-              console.log("Citaaaa: " + cita.id)
               firebase.db.collection("cita").doc(cita.id).delete().then(function () {
                 console.log("Document successfully deleted!");
               }).catch(function (error) {
                 console.error("Error removing document: ", error);
               });
+
             } catch (e) {
               console.log(e)
             }
@@ -36,28 +33,34 @@ const Cita = ({ cita }) => {
         },
         {
           text: 'No',
-          onPress: () => console.log("No se cancelo cita")
+          onPress: () => console.log("No se cancelo la cita")
         },
       ],
     );
   }
-
   removeCitasPasadas = () => {
-    const pastCites = new Date(startDateTime)
-    pastCites.setFullYear(arrayDay[0])
-    console.log(Date.now())
-    if (pastCites < Date.now()) {
-      console.log("es antes")
+    const currentDate = new Date()
+    if (arrayDay[0] <= currentDate.getFullYear()) {
+      if (arrayDay[1] <= currentDate.getMonth()) {
+        if (arrayDay[2] <= currentDate.getUTCDate()) {
+          if (hour <= currentDate.getHours()) {
+            firebase.db.collection("cita").doc(cita.id).delete().then(function () {
+              console.log("Document successfully deleted!");
+            }).catch(function (error) {
+              console.error("Error removing document: ", error);
+            });
+          }
+        }
+      }
     }
   }
-
   return (
-    <SafeAreaView style={styles.cont}>
+    <SafeAreaView style={styles.cont} onload={removeCitasPasadas()}>
       <View style={styles.card}>
         <View style={styles.container}>
           <View style={{ flexDirection: 'row' }}>
             <Text style={styles.negrita}>Fecha: </Text>
-            <Text>{dia.getDate()} - {dia.getMonth()} - {arrayDay[0]}  </Text>
+            <Text>{arrayDay[2]} - {dia.getMonth() + 1} - {arrayDay[0]}  </Text>
           </View>
           <View style={{ flexDirection: 'row' }}>
             <Text style={styles.negrita}>Hora: </Text>
@@ -87,12 +90,10 @@ const Cita = ({ cita }) => {
             <Text style={styles.BText}>Cancelar</Text>
           </TouchableOpacity>
         </View>
-
       </View>
     </SafeAreaView>
   );
 }
-
 
 const styles = StyleSheet.create({
   container: {
@@ -141,7 +142,6 @@ const styles = StyleSheet.create({
   },
   negrita: {
     fontWeight: 'bold',
-
   },
 })
 
