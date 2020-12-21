@@ -17,7 +17,7 @@ function ComentariosScreen() {
           </View>
         </View>
         <View style={styles.containerTop}>
-          <Text style={styles.textTitle}>Visitanos en Facebook:</Text>
+          <Text style={styles.textTitle}>Visítanos en Facebook:</Text>
           <View style={styles.btn}>
             <TouchableOpacity onPress={() => Linking.openURL('https://www.facebook.com/CuceiMobile')}>
               <Text style={styles.textBody}
