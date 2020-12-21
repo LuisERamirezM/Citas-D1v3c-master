@@ -1,40 +1,18 @@
 import React, {useContext} from 'react';
 import { View, StyleSheet } from 'react-native';
-import {
-    Avatar,
-    Title,
-    Caption,
-    Paragraph,
-    Drawer,
-} from 'react-native-paper';
-import {
-    DrawerContentScrollView,
-    DrawerItem
-} from '@react-navigation/drawer';
-
+import {   Avatar,Title,   Caption, Paragraph,Drawer,} from 'react-native-paper';
+import { DrawerContentScrollView, DrawerItem } from '@react-navigation/drawer';
 import { useNavigation } from '@react-navigation/native';
 import AsyncStorage from '@react-native-community/async-storage';
-
 import Icon from 'react-native-vector-icons/MaterialCommunityIcons';
 import UserContext from '../../context/user/userContext'
 
-
-
-
-// import{ AuthContext } from '../components/context';
-
 export function DrawerContent(props) {
-
     const navigation = useNavigation();
-    const {carrera,nombre,codigo,centro} = useContext(UserContext)    
-    
-
-    // const { signOut, toggleTheme } = React.useContext(AuthContext);
+    const {carrera,nombre,codigo,centro} = useContext(UserContext)      
     const signOut = () =>{
         elimiinarDatos()
-
-    }
-
+    }    
     const elimiinarDatos = async ( ) =>{
         try {
           await AsyncStorage.removeItem('user');
@@ -44,8 +22,7 @@ export function DrawerContent(props) {
         }
         finally{
             navigation.navigate("Login")
-        }
-        
+        }       
       }
     return(
         <View style={{flex:1}}>

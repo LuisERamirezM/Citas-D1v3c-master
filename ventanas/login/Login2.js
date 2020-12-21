@@ -1,14 +1,9 @@
 import React, { useState, useContext } from 'react';
-import { StyleSheet, Text, View, TextInput, TouchableOpacity, Image, ToastAndroid, Alert, Platform } from 'react-native';
-import { Button, shadow } from 'react-native-paper';
-
+import { StyleSheet, Text, View, TextInput, Image, Alert, TouchableOpacity } from 'react-native';
+import { Button } from 'react-native-paper';
 import AsyncStorage from '@react-native-community/async-storage';
-
 import { useNavigation } from '@react-navigation/native';
 import UserContext from '../../context/user/userContext';
-import { color } from 'react-native-reanimated';
-import Icon from 'react-native-vector-icons/MaterialCommunityIcons';
-
 
 export default Login = () => {
 
@@ -28,7 +23,6 @@ export default Login = () => {
     const URL = "https://cuceimobile.tech/Escuela/datosudeg.php";
     await fetchGet(`${URL}?codigo=${codigo}&nip=${nip}`)
   }
-
   //Petición get
   fetchGet = (URL) => {
     var request = new XMLHttpRequest();
@@ -86,8 +80,6 @@ export default Login = () => {
       guardarDatos(user)
       addUser(user)
       navigation.navigate("HomeDrawer")
-      //Navegar a la siguiente ventana
-      //navigation.navigate("registro")
     }
   }
 
@@ -101,10 +93,9 @@ export default Login = () => {
     }
   }
 
-  
   return (
     <View style={styles.container}>
-      <View style={{ flex: 1, backgroundColor:"#000070", width:"100%", borderBottomLeftRadius:25, borderBottomRightRadius:25, marginBottom: 120}}>
+      <View style={styles.containerImg}>
         <Image style={styles.logoDivec} source={require('../../images/DivecCitas.png')} />
       </View>
 
@@ -113,7 +104,7 @@ export default Login = () => {
           <Text style={styles.errorText}>El código y el Nip no coinciden</Text>
         </View>
       )}
-      
+
       <Text style={styles.label}>Código:</Text>
       <View style={styles.inputView} >
         <TextInput
@@ -128,24 +119,19 @@ export default Login = () => {
 
       <Text style={styles.label}>NIP:</Text>
       <View style={styles.inputView} >
-          <TextInput
-            onFocus={() => setError(false)}
-            secureTextEntry
-            style={styles.inputText}
-            placeholder="NIP"
-            placeholderTextColor="#305D7A"
-            keyboardType='password'
-            onChangeText={text => setNip(text)} />
+        <TextInput
+          onFocus={() => setError(false)}
+          secureTextEntry
+          style={styles.inputText}
+          placeholder="NIP"
+          placeholderTextColor="#305D7A"
+          keyboardType='password'
+          onChangeText={text => setNip(text)} />
       </View>
 
-      <Button style={styles.loginBtn}
-        onPress={() => {
-          handlerButtonSendInfo()
-        }}
-      >
+      <TouchableOpacity style={styles.loginBtn} onPress={() => handlerButtonSendInfo()}>
         <Text style={styles.loginText}>Entrar</Text>
-      </Button>
-
+      </TouchableOpacity>
     </View>
   );
 }
@@ -155,14 +141,23 @@ const styles = StyleSheet.create({
     flex: 1,
     backgroundColor: '#fafafa',
     alignItems: 'center',
-    justifyContent: 'center',
+  },
+  containerImg: {
+    flex: .5,
+    backgroundColor: "#000070",
+    width: "100%",
+    borderBottomLeftRadius: 25,
+    borderBottomRightRadius: 25,
+    marginBottom: 120
   },
   logoDivec: {
     flex: 1,
-    alignSelf: 'center',
-    width: 200,
+    width: 250,
+    height: 250,
+    resizeMode: 'contain',
+    alignSelf: 'center'
   },
-  
+
   inputView: {
     width: "80%",
     backgroundColor: "#FFFFFF",
@@ -197,7 +192,7 @@ const styles = StyleSheet.create({
     alignItems: "center",
     justifyContent: "center",
     marginTop: 10,
-    marginBottom: 10, 
+    marginBottom: 10,
     shadowColor: "#000",
     shadowOffset: {
       width: 0,
@@ -209,12 +204,13 @@ const styles = StyleSheet.create({
     elevation: 5,
   },
   loginText: {
-    color: "white"
+    color: "white",
+    fontWeight: 'bold',
+    fontSize: 16
   },
   label: {
     color: 'black',
     textAlign: 'left',
-    // backgroundColor:'red',
     alignContent: 'flex-end',
     width: '80%',
     marginVertical: 5,
@@ -223,7 +219,6 @@ const styles = StyleSheet.create({
     fontSize: 16
   },
   errorContainer: {
-    // backgroundColor:'red',
     height: 40,
     width: '90%',
     justifyContent: 'center'
@@ -232,6 +227,5 @@ const styles = StyleSheet.create({
     color: 'red',
     textAlign: 'center',
     fontSize: 16
-    // alignSelf:'center'
   }
 });
