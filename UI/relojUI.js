@@ -6,7 +6,6 @@ import Calendar from './calendarioUI';
 
 const RelojUI = (props) => {
     const { time } = props
-    console.log(time)
     const timeNow = new Date();
     return (
         <View>
