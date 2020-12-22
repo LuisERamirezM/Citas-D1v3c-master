@@ -29,7 +29,7 @@ const CalendarPicker = (props) => {
 
     const {carrera,nombre,codigo,centro} = useContext(UserContext) // Obtener los datos del usuario del context
     const {firebase} = useContext(FirebaseContext); //Obtener las funciones de firebase
-  
+
     const showDatePicker = () => {
       setDatePickerVisibility(true);
     };
@@ -106,10 +106,7 @@ const CalendarPicker = (props) => {
     agregarItemsElements =  () => {
       
       const todayParse = `${date.getFullYear()}-${(date.getMonth())}-${date.getDate()}` // Parsea la fecha de hoy a cadena: "YYYY-MM-DD"      
-       firebase.db.collection("cita").where("day", "==", todayParse).onSnapshot(manejarSnapshot) // Traer solo los de la fecha seleccionada
-      // .then(c=>console.log(c))
-      // .catch(error=>console.log(error))
-      
+       firebase.db.collection("cita").where("day", "==", todayParse).onSnapshot(manejarSnapshot) // Traer solo los de la fecha seleccionada      
     }
 
     function manejarSnapshot(snapshot){
