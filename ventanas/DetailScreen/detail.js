@@ -12,8 +12,8 @@ function ProfileScreen() {
         <View style={{flex:1, justifyContent:"flex-end" , padding: 10}}>
           <Text style={styles.negrita}>INSTRUCCIONES:</Text>
           <Text style={styles.rules}>- Agendar cita con un día de anticipación.</Text>
-          <Text style={styles.rules}>- Las citas están disponibles de lunes a viernes a partir de las 7:00 a.m. hasta las 7:00 p.m.</Text>
-          <Text style={styles.rules}>- Las citas tienen una duración de 1 hr.</Text>
+          <Text style={styles.rules}>- Las citas están disponibles de lunes a viernes a partir de las 8:00 a.m. hasta las 6:00 p.m.</Text>
+          <Text style={styles.rules}>- Las citas tienen una duración como máximo de 1 hr.</Text>
         </View>
       </View>  
     );

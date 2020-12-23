@@ -9,7 +9,6 @@ const RelojUI = (props) => {
     const timeNow = new Date();
     return (
         <View>
-            <Text style={styles.title}>Seleccione la hora</Text>
             <View style={styles.container}>
                 <View style={styles.circle}>
                     {time == '00:00'
@@ -27,13 +26,12 @@ const styles = StyleSheet.create({
     title: {
         alignSelf: 'center',
         fontSize: 16,
-        marginBottom: 5,
         fontWeight: 'bold',
         color: "#707070",
 
     },
     container: {
-        // flex:1,
+        
         justifyContent: 'center',
         alignItems: 'center',
         // backgroundColor:'red',   
@@ -44,11 +42,11 @@ const styles = StyleSheet.create({
     circle: {
         width: "100%",
         backgroundColor: 'white',
-        borderRadius: 0,
+        borderRadius: 5,
         alignItems: 'center',
         justifyContent: 'center',
         borderColor: '#018D8D',
-        borderWidth: 2,
+        borderWidth: 3,
         padding: 8,
         shadowColor: "#000",
         shadowOffset: {
@@ -62,7 +60,7 @@ const styles = StyleSheet.create({
     time: {
         color: '#707070',
         fontSize: 60,
-        marginHorizontal: 5
+        marginHorizontal: 20
     }
 })
 export default RelojUI;
