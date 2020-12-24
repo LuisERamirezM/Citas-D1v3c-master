@@ -27,7 +27,7 @@ function ExploreScreen() {
             id: doc.id,
             ...doc.data()
           }
-        });     
+        });
         //Ordenar por fecha con Lodash
         citas = _.sortBy(citas, 'date');
         setCitasTotales(citas);
@@ -36,28 +36,28 @@ function ExploreScreen() {
       console.log(error);
     }
   }
-    return (
-      <View style={{ flex: 1,  margin: 5}}>
-       <ScrollView>
-        <View style={styles.container}>                
-                {citasTotales.map( cite =>{
-                  return (                    
-                    <Cita 
-                        key={cite.id}
-                        cita={cite}
-                    />
-                )})}
-            </View>
-          </ScrollView>            
-      </View>
-    );
-  }
+  return (
+    <View style={{ flex: 1, margin: 5 }}>
+      <ScrollView>
+        <View style={styles.container}>
+          {citasTotales.map(cite => {
+            return (
+              <Cita
+                key={cite.id}
+                cita={cite}
+              />
+            )
+          })}
+        </View>
+      </ScrollView>
+    </View>
+  );
+}
 
-  const styles = StyleSheet.create({
-    container:{
-      flex:1
-
-    },
-  })
+const styles = StyleSheet.create({
+  container: {
+    flex: 1
+  },
+})
 
 export default ExploreScreen;
