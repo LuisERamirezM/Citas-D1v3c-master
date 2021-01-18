@@ -14,7 +14,7 @@ const Cita = ({ cita }) => {
   const cancel = () => {
     Alert.alert(
       '¿Quieres cancelar la cita?',
-      'Tú cita se eliminara y tendrás que agendar una nueva si quieres recuperarla.',
+      'Tu cita se eliminará y tendrás que agendar una nueva si quieres recuperarla.',
       [
         {
           text: 'Yes',
@@ -33,7 +33,7 @@ const Cita = ({ cita }) => {
         },
         {
           text: 'No',
-          onPress: () => console.log("No se cancelo la cita")
+          onPress: () => console.log("No se canceló la cita")
         },
       ],
     );

@@ -73,10 +73,10 @@ const styles = createStyles(base,
             minHeight: 10,
         },
         blankCalendar: {
-            minHeight: 100,
+            minHeight: 90,
         },
         number: {
-            fontSize: 40, 
+            fontSize: 30, 
         },
         month: {
             fontSize: 15,
