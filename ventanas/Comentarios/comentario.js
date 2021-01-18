@@ -51,7 +51,7 @@ const styles = StyleSheet.create({
     margin: 10,
     borderRadius: 25,
     padding: 5,
-    backgroundColor: "#EBB331",
+    backgroundColor: "#B54A1C",
     justifyContent: "center",
     shadowColor: "#000",
     shadowOffset: {
@@ -88,7 +88,7 @@ const styles = StyleSheet.create({
     alignItems: "center",
   },
   textTitle: {
-    color: "#7999EE",
+    color: "#7991FE",
     fontSize: 25,
     fontWeight: "bold",
   },

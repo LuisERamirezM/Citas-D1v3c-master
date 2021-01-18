@@ -42,7 +42,7 @@ const Cita = ({ cita }) => {
     const currentDate = new Date()
     if (arrayDay[0] <= currentDate.getFullYear()) {
       if (arrayDay[1] <= currentDate.getMonth()) {
-        if (arrayDay[2] <= currentDate.getDate()) {
+        if (arrayDay[2] <= currentDate.getUTCDate()) {
           if (hour <= currentDate.getHours()) {
             firebase.db.collection("cita").doc(cita.id).delete().then(function () {
               console.log("Document successfully deleted!");

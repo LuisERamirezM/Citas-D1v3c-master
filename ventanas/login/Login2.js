@@ -127,7 +127,7 @@ export default Login = () => {
           style={styles.inputText}
           placeholder="NIP"
           placeholderTextColor="#305D7A"
-          keyboardType='default'
+          keyboardType='password'
           onChangeText={text => setNip(text)} />
       </View>
 
