@@ -1,6 +1,7 @@
 import React from 'react';
-import { View, StyleSheet } from 'react-native'
-import { Text } from 'react-native-paper'
+import { View, StyleSheet } from 'react-native';
+import { createStyles, maxHeight } from 'react-native-media-queries';
+import { Text } from 'react-native-paper';
 
 const CalendarioUI = ({ dia, mes }) => {
     const date = new Date();
@@ -24,14 +25,7 @@ const CalendarioUI = ({ dia, mes }) => {
     );
 }
 
-const styles = StyleSheet.create({
-    title: {
-        alignSelf: 'center',
-        fontSize: 16,
-        marginBottom: 5,
-        fontWeight: 'bold',
-        color: "#707070"
-    },
+const base = {
     container: {
         borderRadius: 5,
         minHeight: '20%',
@@ -71,5 +65,22 @@ const styles = StyleSheet.create({
         color: "#707070"
     }
 
-})
+};
+
+const styles = createStyles(base,
+    maxHeight(780, {
+        topCalendar: {
+            minHeight: 10,
+        },
+        blankCalendar: {
+            minHeight: 100,
+        },
+        number: {
+            fontSize: 40, 
+        },
+        month: {
+            fontSize: 15,
+        }
+    })
+);
 export default CalendarioUI;

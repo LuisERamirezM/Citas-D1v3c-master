@@ -104,7 +104,7 @@ export function DrawerContent(props) {
                     </Drawer.Section>
                 </View>
             </DrawerContentScrollView>
-            <View style={{flex: .75, backgroundColor: "#fff", justifyContent:"flex-end"}}>
+            <View style={styles.containerbottomDrawerSection}>
                 <Drawer.Section style={styles.bottomDrawerSection}>
                     <DrawerItem 
                         icon={({color, size}) => (
@@ -161,8 +161,13 @@ const styles = StyleSheet.create({
     },
     drawerSection: {
       marginTop: 20,
-      marginBottom: 100,
+      marginBottom: 80,
       
+    },
+    containerbottomDrawerSection: {
+        flex: .7, 
+        backgroundColor: "#fff", 
+        justifyContent:"flex-end",
     },
     bottomDrawerSection: {
         backgroundColor: "#fff",

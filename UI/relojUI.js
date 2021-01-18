@@ -1,5 +1,6 @@
 import React from 'react';
-import { View, Text, StyleSheet } from 'react-native'
+import { View, Text } from 'react-native'
+import { createStyles, maxHeight } from 'react-native-media-queries';
 import { Avatar } from 'react-native-paper';
 import Calendar from './calendarioUI';
 
@@ -21,23 +22,12 @@ const RelojUI = (props) => {
         </View>
     );
 }
-
-const styles = StyleSheet.create({
-    title: {
-        alignSelf: 'center',
-        fontSize: 16,
-        fontWeight: 'bold',
-        color: "#707070",
-
-    },
-    container: {
-        
+const base = {
+    container: {   
         justifyContent: 'center',
         alignItems: 'center',
-        // backgroundColor:'red',   
         width: "100%",
         minHeight: 120,
-        // position:"absolute" 
     },
     circle: {
         width: "100%",
@@ -60,7 +50,14 @@ const styles = StyleSheet.create({
     time: {
         color: '#707070',
         fontSize: 60,
-        marginHorizontal: 20
+        marginHorizontal: 20,
     }
-})
+}
+const styles = createStyles(base,
+    maxHeight(780, {
+        time: {           
+            fontSize: 40,
+        },
+    })
+);
 export default RelojUI;

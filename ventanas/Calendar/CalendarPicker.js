@@ -1,5 +1,6 @@
 import React, { useState, useContext } from 'react'; // Hooks para estado y contexto
-import { View, Text, StyleSheet, Alert, TouchableOpacity } from 'react-native'
+import { View, Text, StyleSheet, Alert, TouchableOpacity } from 'react-native';
+import { createStyles, maxHeight } from 'react-native-media-queries';
 import { TextInput } from 'react-native-paper';
 import DateTimePickerModal from "react-native-modal-datetime-picker"; //comp. para seleccionar dia
 import RNPickerSelect from 'react-native-picker-select'; // comp para seleccionar la hora disponible
@@ -225,33 +226,16 @@ const CalendarPicker = (props) => {
 
   );
 }
-const styles = StyleSheet.create({
+const base = {
   container: {
     justifyContent: 'center',
     alignItems: 'center',
     backgroundColor: 'white',
-    // backgroundColor:'blue',
     flex: 4,
-
-  },
-  title: {
-    fontWeight: 'bold',
-    fontSize: 28,
-    textAlign: 'center',
-    color: 'white',
-    marginTop: 20
   },
   textoCita: {
     color: "white",
-    fontSize: 24
-
-  },
-
-  titleNothing: {
-    color: 'red',
-    fontSize: 23,
-    textAlign: 'center',
-    margin: 10
+    fontSize: 24,
 
   },
   citaBtn: {
@@ -272,7 +256,6 @@ const styles = StyleSheet.create({
 
     elevation: 5,
   },
-
   containerBottom: {
     flex: 2,
     justifyContent: "space-around",
@@ -285,7 +268,7 @@ const styles = StyleSheet.create({
     shadowColor: "#000",
     shadowOffset: {
       width: 0,
-      height: 2,
+      height: 1,
     },
     shadowOpacity: 0.25,
     shadowRadius: 3.84,
@@ -295,5 +278,17 @@ const styles = StyleSheet.create({
     marginHorizontal: 20,
     minWidth: 200,
   }
-})
+};
+
+const styles = createStyles(base,
+  maxHeight(780, {
+    textoCita: {
+      fontSize: 20,
+    },
+    citaBtn: {
+      width: "70%",    
+      height: 30,
+    },
+  })
+); 
 export default CalendarPicker;

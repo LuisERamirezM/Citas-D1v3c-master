@@ -29,6 +29,7 @@
     "react-native": "0.62.2",
     "react-native-calendars": "^1.300.0",
     "react-native-gesture-handler": "^1.6.1",
+    "react-native-media-queries": "^0.3.0",
     "react-native-modal-datetime-picker": "^8.7.1",
     "react-native-paper": "^3.10.1",
     "react-native-picker-select": "^7.0.0",
