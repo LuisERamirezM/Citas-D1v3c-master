@@ -1,4 +1,5 @@
 import React from 'react';
+<<<<<<< HEAD
 import { View , StyleSheet} from 'react-native'
 import {Text} from 'react-native-paper'
 const CalendarioUI = ({dia, mes}) => {
@@ -9,6 +10,28 @@ const CalendarioUI = ({dia, mes}) => {
             <View style={styles.container}>                
                 <View style={styles.topCalendar}>
                         
+=======
+import { View, StyleSheet } from 'react-native'
+import { Text } from 'react-native-paper'
+
+const CalendarioUI = ({dia, mes}) => {  
+    const date = new Date();
+    const mounth = new Array("Enero", "Febrero", "Marzo", "Abril", "Mayo", "Junio", "Julio", "Agosto", "Septiembre", "Octubre", "Noviembre", "Diciembre");
+    return (
+        <View>
+            <Text style={styles.title}>Seleccione la fecha</Text>
+            <View style={styles.container}>       
+                <View style={styles.topCalendar} />
+                <View style={styles.blankCalendar}>
+                    {mes == 'Seleccione el día' 
+                    ?(<Text style={styles.number}>{date.getDate()}</Text>)                   
+                    : (<Text style={styles.number}>{dia}</Text>)
+                    }
+                    {mes == 'Seleccione el día' 
+                    ?(<Text style={styles.month}>{mounth[date.getUTCMonth()]}</Text>)                   
+                    : (<Text style={styles.month}>{mes}</Text>)
+                    }
+>>>>>>> parent of 04d776f... Revert "Revert "Agendar cita terminada""
                 </View>
                 <View style={styles.blankCalendar}>
                     <Text style={styles.number}>{dia}</Text>
@@ -21,6 +44,7 @@ const CalendarioUI = ({dia, mes}) => {
 }
  
 const styles = StyleSheet.create({
+<<<<<<< HEAD
     container:{
         minHeight:'20%',
         justifyContent:'center',
@@ -28,6 +52,29 @@ const styles = StyleSheet.create({
         minWidth:'30%',
         minWidth:150,
         // backgroundColor:"orange",        
+=======
+    title: {
+        alignSelf: 'center', 
+        fontSize:16, 
+        marginBottom: 5,
+        fontWeight: 'bold',
+        color: "#707070"
+    }, 
+    container: {
+        minHeight: '20%',
+        alignItems: 'center',
+        minWidth: '50%',
+        borderColor: '#018D8D',
+        borderWidth: 2,
+        shadowColor: "#000",
+        shadowOffset: {
+          width: 0,
+          height: 1,
+        },
+        shadowOpacity: 0.22,
+        shadowRadius: 2.22,
+        elevation: 3,
+>>>>>>> parent of 04d776f... Revert "Revert "Agendar cita terminada""
     },
     topCalendar:{        
         minWidth:150,
