@@ -1,5 +1,5 @@
 import React, { useState, useContext } from 'react'; // Hooks para estado y contexto
-import { View, Text, StyleSheet, Alert, TouchableOpacity, ScrollView } from 'react-native'
+import { View, Text, StyleSheet, Alert, TouchableOpacity } from 'react-native'
 import { TextInput } from 'react-native-paper';
 import DateTimePickerModal from "react-native-modal-datetime-picker"; //comp. para seleccionar dia
 import RNPickerSelect from 'react-native-picker-select'; // comp para seleccionar la hora disponible
@@ -34,12 +34,19 @@ const CalendarPicker = (props) => {
 
   const confirmarFecha = (dia) => {
     hideDatePicker();
-    setDate(dia)
-    agregarItemsElements()
+    const today = new Date().getDate()
+    if(dia.getDate() > today){
+      
+      setDate(dia)
+      agregarItemsElements()
+    }else{
+      Alert.alert("¡Atención!", "Las citas deben ser agendadas como mínimo con un día de anticipación."
+                +" Por favor elija otro día." );
+      return
+    }
   };
 
   const itemsDefault = [
-    { label: '07:00', value: '0700', key: '0700' },
     { label: '08:00', value: '0800', key: '0800' },
     { label: '09:00', value: '0900', key: '0900' },
     { label: '10:00', value: '1000', key: '1000' },
@@ -50,8 +57,7 @@ const CalendarPicker = (props) => {
     { label: '15:00', value: '1500', key: '1500' },
     { label: '16:00', value: '1600', key: '1600' },
     { label: '17:00', value: '1700', key: '1700' },
-    { label: '18:00', value: '1800', key: '1800' },
-    { label: '19:00', value: '1900', key: '1900' },]
+    { label: '18:00', value: '1800', key: '1800' },]
 
   const confirmarCita = () => {
     if (date == '' || time == '') {
@@ -70,8 +76,8 @@ const CalendarPicker = (props) => {
       centro,
       carrera,
     }
-    agregarCita(cita)                
-    agregarItemsElements()        
+    agregarCita(cita)
+    agregarItemsElements()
   }
   const agregarCita = async (cita) => {
     try {
@@ -122,7 +128,7 @@ const CalendarPicker = (props) => {
 
   const dayCalendarRender = () => {
     if (date) {
-      return date.getDate().toString()
+      return date.getDate().toString() 
     }
     else {
       return "0"
@@ -151,10 +157,6 @@ const CalendarPicker = (props) => {
   return (
     <View style={{ backgroundColor: "white", flex: 1 }}>
       <View style={styles.container}>
-
-        <View>
-          <Text style={styles.title}>Agenda tu cita</Text>
-        </View>
         <View style={{ alignItems: "center", justifyContent: "space-evenly", flex: 1 }}>
           <View style={styles.calendario}>
             <TouchableOpacity
@@ -190,7 +192,7 @@ const CalendarPicker = (props) => {
           />
 
         </View>
-
+       
       </View>
       {/**Fin container top **/}
 
@@ -198,28 +200,29 @@ const CalendarPicker = (props) => {
         {/* Hay que verificar si cierra el teclado en otros dispositivos */}
         <View style={styles.containerInputAsunto}>
           <TextInput
-            style={styles.inputAsunto}
+            mode='outlined'
+            style={props.style}
+            theme={{ colors: { text: 'black', primary: 'rgb(1, 141, 141)' } }}
             label="Asunto:"
-            multiline={true}
-            numberOfLines={3}
-            placeholder="Escribe tu asunto aqui:"
-            // value={subject}
+            placeholder="Escribe tu asunto aquí."
+            placeholderTextColor='white'
+            secureTextEntry={props.secureTextEntry}
+            multiline={props.multiline}
+            keyboardType={props.keyboardType}
+            numberOfLines={2}
             onChangeText={text => setSubject(text)}
           />
         </View>
-
         <Button style={styles.citaBtn}
-
           onPress={() => confirmarCita()}
         >
           <Text style={styles.textoCita}>Confirmar Cita</Text>
         </Button>
       </View>
-
     </View>
+
   );
 }
-
 const styles = StyleSheet.create({
   container: {
     justifyContent: 'center',
@@ -268,21 +271,15 @@ const styles = StyleSheet.create({
     elevation: 5,
   },
 
-  pickerSelectHour: {
-    //Componente picker
-  },
   containerBottom: {
     flex: 2,
     justifyContent: "space-around",
-    // alignItems:"center",    
-    // backgroundColor:"red"
-  },
-  calendario: {
-    // marginVertical:30,
 
   },
   inputAsunto: {
-    // marginBottom:20
+    backgroundColor: "transparent",
+    borderBottomColor: '#000000',
+    borderBottomWidth: 1,
     shadowColor: "#000",
     shadowOffset: {
       width: 0,
@@ -290,12 +287,11 @@ const styles = StyleSheet.create({
     },
     shadowOpacity: 0.25,
     shadowRadius: 3.84,
-
     elevation: 5,
   },
   containerInputAsunto: {
     marginHorizontal: 20,
-    minWidth: 200
+    minWidth: 200,
   }
 })
 export default CalendarPicker;
