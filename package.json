@@ -23,6 +23,7 @@
     "firebase": "^7.16.1",
     "intl": "^1.2.5",
     "lodash": "^4.17.19",
+    "node-modules": "^1.0.1",
     "react": "16.11.0",
     "react-clock": "^2.4.0",
     "react-native": "0.62.2",
