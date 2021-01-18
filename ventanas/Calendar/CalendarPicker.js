@@ -34,11 +34,13 @@ const CalendarPicker = (props) => {
 
   const confirmarFecha = (dia) => {
     hideDatePicker();
-    const today = new Date().getDate()
-    if(dia.getDate() > today){
-      
-      setDate(dia)
-      agregarItemsElements()
+    const today = new Date().getDate();
+    const month = new Date().getMonth();
+    const year = new Date().getUTCFullYear();
+    console.log(year)
+    if(dia.getFullYear() > year || dia.getMonth() > month ||dia.getDate() > today){   
+      setDate(dia);
+      agregarItemsElements();
     }else{
       Alert.alert("¡Atención!", "Las citas deben ser agendadas como mínimo con un día de anticipación."
                 +" Por favor elija otro día." );
