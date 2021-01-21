@@ -100,7 +100,7 @@ const CalendarPicker = (props) => {
   }
   //Items del RNPicker Select    
   var itemsElements = {}
-  agregarItemsElements = () => {
+   agregarItemsElements = () => {
 
     const todayParse = `${date.getFullYear()}-${(date.getMonth())}-${date.getDate()}` // Parsea la fecha de hoy a cadena: "YYYY-MM-DD"      
     firebase.db.collection("cita").where("day", "==", todayParse).onSnapshot(manejarSnapshot) // Traer solo los de la fecha seleccionada
@@ -289,6 +289,20 @@ const styles = createStyles(base,
       width: "70%",    
       height: 30,
     },
-  })
+  }),
+  maxHeight(600, {
+    container: {
+      flex: 2,
+    },
+    containerBottom:{
+      flex: 1.5,
+    },
+    citaBtn: {
+      width: "65%",    
+      height: 27,
+    },
+  }),
+
+
 ); 
 export default CalendarPicker;

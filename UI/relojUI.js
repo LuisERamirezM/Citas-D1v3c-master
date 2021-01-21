@@ -23,14 +23,14 @@ const RelojUI = (props) => {
     );
 }
 const base = {
-    container: {   
+    container: {
         justifyContent: 'center',
         alignItems: 'center',
         width: "100%",
         minHeight: 120,
     },
     circle: {
-        width: "100%",
+        minWidth: "50%",
         backgroundColor: 'white',
         borderRadius: 5,
         alignItems: 'center',
@@ -56,28 +56,18 @@ const base = {
 const styles = createStyles(base,
     maxHeight(780, {
         circle: {
-            width: "100%",
-            backgroundColor: 'white',
-            borderRadius: 5,
-            alignItems: 'center',
-            justifyContent: 'center',
-            borderColor: '#018D8D',
-            borderWidth: 3,
             padding: 3,
-            shadowColor: "#000",
-            shadowOffset: {
-                width: 0,
-                height: 1,
-            },
-            shadowOpacity: 0.22,
-            shadowRadius: 2.22,
-            elevation: 3,
         },
-        time: {           
+        time: {
             fontSize: 27,
-            marginLeft: "15%",
-            marginRight: "5%",
-            minWidth: "30%",
+        },
+    }),
+    maxHeight(600, {
+        circle: {
+            padding: 3,
+        },
+        time: {
+            fontSize: 20,
         },
     })
 );

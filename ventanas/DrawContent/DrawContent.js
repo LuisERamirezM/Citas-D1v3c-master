@@ -5,7 +5,8 @@ import { DrawerContentScrollView, DrawerItem } from '@react-navigation/drawer';
 import { useNavigation } from '@react-navigation/native';
 import AsyncStorage from '@react-native-community/async-storage';
 import Icon from 'react-native-vector-icons/MaterialCommunityIcons';
-import UserContext from '../../context/user/userContext'
+import UserContext from '../../context/user/userContext';
+import { createStyles, maxHeight } from 'react-native-media-queries';
 
 export function DrawerContent(props) {
     const navigation = useNavigation();
@@ -123,7 +124,7 @@ export function DrawerContent(props) {
     );
 }
 
-const styles = StyleSheet.create({
+const base = {
     drawerContent: {
         flex: 1,
         backgroundColor: "#fff",
@@ -181,4 +182,14 @@ const styles = StyleSheet.create({
       paddingVertical: 12,
       paddingHorizontal: 16,
     },
-  });
+  };
+
+  const styles = createStyles(base,
+    maxHeight(600, {
+        containerbottomDrawerSection: {
+            flex: .5,
+            
+        }
+
+    })
+);

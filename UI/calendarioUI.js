@@ -81,6 +81,23 @@ const styles = createStyles(base,
         month: {
             fontSize: 15,
         }
+    }),
+    maxHeight(600, {
+        container: {
+            minHeight: 0,
+        },
+        topCalendar: {
+            minHeight: 5,
+        },
+        blankCalendar: {
+            minHeight: 75,
+        },
+        number: {
+            fontSize: 20, 
+        },
+        month: {
+            fontSize: 10,
+        }
     })
 );
 export default CalendarioUI;
