@@ -3,8 +3,8 @@ import { View, Text, StyleSheet, Alert, TouchableOpacity } from 'react-native';
 import { createStyles, maxHeight } from 'react-native-media-queries';
 import { TextInput } from 'react-native-paper';
 import DateTimePickerModal from "react-native-modal-datetime-picker"; //comp. para seleccionar dia
-import RNPickerSelect from 'react-native-picker-select'; // comp para seleccionar la hora disponible
-import { Button, Avatar } from 'react-native-paper';
+import { Picker } from '@react-native-picker/picker'; // comp para seleccionar la hora disponible
+import { Button } from 'react-native-paper';
 import FirebaseContext from '../../context/firebase/firebaseContext'; // Contexto para acceder a firestore
 import UserContext from '../../context/user/userContext'// contexto para acceder a la info del usuario
 import Toast from 'react-native-simple-toast';
@@ -15,6 +15,7 @@ import Calendario from '../../UI/calendarioUI';
 import Reloj from '../../UI/relojUI';
 import 'intl';
 import 'intl/locale-data/jsonp/es';
+
 
 const CalendarPicker = (props) => {
   const [isDatePickerVisible, setDatePickerVisibility] = useState(false);
@@ -50,6 +51,7 @@ const CalendarPicker = (props) => {
   };
 
   const itemsDefault = [
+    { label: 'Selecciona la hora', value: '0000', key: '0000'},
     { label: '08:00', value: '0800', key: '0800' },
     { label: '09:00', value: '0900', key: '0900' },
     { label: '10:00', value: '1000', key: '1000' },
@@ -174,13 +176,18 @@ const CalendarPicker = (props) => {
           <Reloj
             time={timeClockRender()}
           >
-            {horasItems && (
-              <RNPickerSelect
-                style={styles.pickerSelectHour}
-                onValueChange={(itemValue, itemIndex) => setTime(itemValue)}
-                items={horasItems}
-
-              />)}
+            {horasItems && <Picker
+              selectedValue={horasItems}
+              style={{height: 50, width: 150}}   
+              onValueChange={(itemValue) => setTime(itemValue)}     
+            >
+              {
+                horasItems.map(item => {
+                  return <Picker.Item key={item.key} value={item.value} label={item.label} />
+                })
+                
+              }
+            </Picker> }
           </Reloj>
 
 
